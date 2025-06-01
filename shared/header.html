@@ -1,0 +1,37 @@
+<header class="bg-brand-gray shadow-md">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <div class="flex items-center">
+                <a href="index.html" class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">AI Prompt Hub</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                <a href="dashboard.html" id="dashboard-link" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hidden">Dashboard</a>
+                 <a href="login.html" id="login-link" class="bg-brand-primary hover:bg-brand-primary/80 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Login</a>
+                <a href="signup.html" id="signup-link" class="border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Sign Up</a>
+                <button id="header-logout-button" class="hidden bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                    <i data-lucide="log-out" class="inline-block w-4 h-4 mr-1"></i> Logout
+                </button>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" type="button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                    <span class="sr-only">Open main menu</span>
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="dashboard.html" id="mobile-dashboard-link" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium hidden">Dashboard</a>
+            <a href="login.html" id="mobile-login-link" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
+            <a href="signup.html" id="mobile-signup-link" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign Up</a>
+             <button id="mobile-header-logout-button" class="hidden w-full text-left text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                <i data-lucide="log-out" class="inline-block w-4 h-4 mr-1"></i> Logout
+            </button>
+        </div>
+    </div>
+</header>

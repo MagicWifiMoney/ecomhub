@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base - AI Prompt Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#8B5CF6',
+                        'brand-secondary': '#EC4899',
+                        'brand-dark': '#111827',
+                        'brand-gray': '#374151',
+                        'brand-light': '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-dark text-brand-light flex flex-col min-h-screen">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow container mx-auto px-4 py-16">
+        <header class="mb-12 md:mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-brand-light">
+                Knowledge <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Base</span>
+            </h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+                Find articles, guides, and tutorials to help you make the most of the AI Prompt Hub.
+            </p>
+        </header>
+
+        <section id="articles" class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-semibold text-brand-light mb-8 border-l-4 border-brand-primary pl-4">Featured Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-semibold text-brand-light mb-3">Optimizing Your E-commerce Product Descriptions with AI</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">Learn how to leverage AI prompts to create compelling and high-converting product descriptions for your online store. This guide covers techniques for tone, keywords, and structure.</p>
+                    </div>
+                    <div class="p-6 bg-gray-700/50">
+                        <a href="#" class="inline-flex items-center text-brand-primary hover:text-brand-secondary font-medium">
+                            Read more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-semibold text-brand-light mb-3">A Founder's Guide to Effective Email Marketing Prompts</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">Discover AI prompt strategies for crafting engaging email campaigns. From subject lines to calls to action, boost your open rates and conversions with AI assistance tailored for e-commerce.</p>
+                    </div>
+                    <div class="p-6 bg-gray-700/50">
+                        <a href="#" class="inline-flex items-center text-brand-primary hover:text-brand-secondary font-medium">
+                            Read more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-semibold text-brand-light mb-3">Understanding Your Target Audience with AI Insights</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">Use AI-powered prompts to delve deeper into customer personas and market segments. This article explores how to generate insights that inform your marketing and product strategy.</p>
+                    </div>
+                    <div class="p-6 bg-gray-700/50">
+                        <a href="#" class="inline-flex items-center text-brand-primary hover:text-brand-secondary font-medium">
+                            Read more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="videos" class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-semibold text-brand-light mb-8 border-l-4 border-brand-secondary pl-4">Tutorial Videos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-brand-gray rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-brand-light mb-4">Tutorial: Using the Static Ad Generator</h3>
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-700">
+                        <iframe src="https://www.youtube.com/embed/YE7VzlLtp-4?autoplay=1&mute=1&loop=1&playlist=YE7VzlLtp-4" 
+                                title="Tutorial: Using the Static Ad Generator" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                class="w-full h-full"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm">A step-by-step walkthrough of our Static Ad Generator tool, showing you how to create effective ad copy quickly.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-gray rounded-xl shadow-lg overflow-hidden">
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-brand-light mb-4">Deep Dive: Crafting High-Converting Prompts</h3>
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-700">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" 
+                                title="Deep Dive: Crafting High-Converting Prompts" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                class="w-full h-full"></iframe>
+                    </div>
+                     <div class="p-6">
+                        <p class="text-gray-300 text-sm">Explore advanced techniques for writing prompts that yield the best results from AI models for your e-commerce needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="js/lucide_init.js"></script>
+    <script type="module" src="js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                 window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

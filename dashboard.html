@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Prompt Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#8B5CF6',
+                        'brand-secondary': '#EC4899',
+                        'brand-dark': '#111827',
+                        'brand-gray': '#374151',
+                        'brand-light': '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-dark text-brand-light flex flex-col min-h-screen">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow container mx-auto px-4 py-16">
+        <div class="bg-brand-gray p-8 md:p-12 rounded-xl shadow-2xl">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-brand-light">Dashboard</h1>
+            <p class="text-lg text-gray-300 mb-6">Welcome to your AI Prompt Hub dashboard!</p>
+            <p class="text-gray-400 mb-4">Explore your tools and manage your AI-powered tasks.</p>
+            
+            <div class="mt-8 p-6 bg-gray-700/50 rounded-lg">
+                <h2 class="text-xl font-semibold text-brand-light mb-3">Your Quick Stats (Example)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-gray-800 p-4 rounded-md shadow">
+                        <p class="text-sm text-gray-400">Prompts Used</p>
+                        <p class="text-2xl font-bold text-brand-primary">42</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md shadow">
+                        <p class="text-sm text-gray-400">Favorite Prompts</p>
+                        <p class="text-2xl font-bold text-brand-primary">5</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md shadow">
+                        <p class="text-sm text-gray-400">Ads Generated</p>
+                        <p class="text-2xl font-bold text-brand-primary">12</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 space-y-6 md:space-y-0 md:flex md:flex-wrap md:gap-6">
+                <a href="tools_ad_generator.html" class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary/90 hover:to-brand-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-gray focus:ring-brand-primary">
+                    <i data-lucide="wand-2" class="w-5 h-5 mr-2"></i>
+                    Static Ad Generator
+                </a>
+                <a href="knowledge_base.html" class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary/90 hover:to-brand-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-gray focus:ring-brand-primary">
+                    <i data-lucide="book-open" class="w-5 h-5 mr-2"></i>
+                    Knowledge Base
+                </a>
+                <button id="logoutButton" class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-gray focus:ring-pink-500">
+                    <i data-lucide="log-out" class="w-5 h-5 mr-2"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="js/lucide_init.js"></script>
+    <script type="module" src="js/layout.js"></script>
+    <script type="module">
+        import { logoutUser } from './js/auth.js';
+        
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        const logoutButton = document.getElementById('logoutButton');
+        if (logoutButton) {
+            logoutButton.addEventListener('click', () => {
+                logoutUser(); 
+            });
+        }
+    </script>
+</body>
+</html>

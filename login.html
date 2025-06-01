@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AI Prompt Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#8B5CF6',
+                        'brand-secondary': '#EC4899',
+                        'brand-dark': '#111827',
+                        'brand-gray': '#374151',
+                        'brand-light': '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-dark text-brand-light flex flex-col min-h-screen">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8 bg-brand-gray p-8 md:p-10 rounded-xl shadow-2xl">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-brand-light">
+                    Sign in to your account
+                </h2>
+            </div>
+            <form id="loginForm" class="mt-8 space-y-6">
+                <input type="hidden" name="remember" value="true">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div>
+                        <label for="email-address" class="sr-only">Email address</label>
+                        <input id="email-address" name="email" type="email" autocomplete="email" required
+                               class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-600 bg-gray-700 text-brand-light placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary focus:z-10 sm:text-sm rounded-t-md"
+                               placeholder="Email address">
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                               class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-600 bg-gray-700 text-brand-light placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary focus:z-10 sm:text-sm rounded-b-md"
+                               placeholder="Password">
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="text-red-400 text-sm hidden"></div>
+
+                <div>
+                    <button type="submit"
+                            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary/90 hover:to-brand-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-gray focus:ring-brand-primary transition-all duration-150 ease-in-out">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <i data-lucide="lock" class="h-5 w-5 text-violet-300 group-hover:text-violet-200"></i>
+                        </span>
+                        Sign in
+                    </button>
+                </div>
+            </form>
+            <p class="mt-6 text-center text-sm text-gray-400">
+                Don't have an account?
+                <a href="signup.html" class="font-medium text-brand-primary hover:text-brand-primary/80">
+                    Sign up
+                </a>
+            </p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="js/lucide_init.js"></script>
+    <script type="module" src="js/layout.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+</html>

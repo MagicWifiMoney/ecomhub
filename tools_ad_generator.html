@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Ad Generator - AI Prompt Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#8B5CF6',
+                        'brand-secondary': '#EC4899',
+                        'brand-dark': '#111827',
+                        'brand-gray': '#374151',
+                        'brand-light': '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-dark text-brand-light flex flex-col min-h-screen">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow container mx-auto px-4 py-12 md:py-16">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-4xl font-bold text-brand-light mb-3">Static Ad Generator</h1>
+                <p class="text-lg text-gray-400">Craft compelling ad copy with the power of AI.</p>
+            </div>
+
+            <form id="adGeneratorForm" class="bg-brand-gray p-6 md:p-8 rounded-xl shadow-2xl space-y-6">
+                <div>
+                    <label for="productName" class="block text-sm font-medium text-gray-300 mb-1">Product/Service Name</label>
+                    <input type="text" id="productName" name="productName" required class="block w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-brand-light placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent shadow-sm">
+                </div>
+
+                <div>
+                    <label for="productDescription" class="block text-sm font-medium text-gray-300 mb-1">Product/Service Description</label>
+                    <textarea id="productDescription" name="productDescription" rows="3" required class="block w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-brand-light placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent shadow-sm"></textarea>
+                </div>
+
+                <div>
+                    <label for="targetAudience" class="block text-sm font-medium text-gray-300 mb-1">Target Audience</label>
+                    <input type="text" id="targetAudience" name="targetAudience" required placeholder="e.g., young professionals, eco-conscious families" class="block w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-brand-light placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent shadow-sm">
+                </div>
+
+                <div>
+                    <label for="adTone" class="block text-sm font-medium text-gray-300 mb-1">Desired Tone</label>
+                    <select id="adTone" name="adTone" class="block w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-brand-light focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent shadow-sm">
+                        <option>Professional</option>
+                        <option>Witty</option>
+                        <option>Friendly</option>
+                        <option>Urgent</option>
+                        <option>Persuasive</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="numVariations" class="block text-sm font-medium text-gray-300 mb-1">Number of Ad Variations (1-5)</label>
+                    <input type="number" id="numVariations" name="numVariations" value="3" min="1" max="5" class="block w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-brand-light placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent shadow-sm">
+                </div>
+                
+                <div id="formErrorMessage" class="text-red-400 text-sm hidden"></div>
+
+                <div>
+                    <button type="submit" id="generateButton" class="w-full group inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary/90 hover:to-brand-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-gray focus:ring-brand-primary transition-all duration-150 ease-in-out">
+                        <i data-lucide="sparkles" class="w-5 h-5 mr-2 transition-transform group-hover:rotate-12"></i>
+                        Generate Ad Copy
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultsArea" class="mt-10">
+                <div id="loadingIndicator" class="text-center py-6 hidden">
+                    <div class="inline-flex items-center text-brand-light">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Generating ad copy... please wait.
+                    </div>
+                </div>
+                <div id="errorMessage" class="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg relative hidden" role="alert">
+                    <strong class="font-bold">Error:</strong>
+                    <span class="block sm:inline" id="errorMessageText"></span>
+                </div>
+                <div id="adResultsContainer" class="space-y-6">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module">
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script type="module" src="js/lucide_init.js"></script>
+    <script type="module" src="js/layout.js"></script>
+    <script type="module" src="js/ad_generator.js"></script>
+</body>
+</html>
